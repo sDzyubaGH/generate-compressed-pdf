@@ -17,7 +17,7 @@ async function loadFile() {
   // console.log(results);
   const output = results[0];
   const file = Compress.convertBase64ToFile(output.data, output.ext);
-  // console.log(file);
+  // console.log(output);
 
   var doc = new jsPDF(unit = 'mm');
 
@@ -27,7 +27,6 @@ async function loadFile() {
   const imgIncrease = ((A4WIDTHMM - imgWidthMM) / imgWidthMM) * 100
 
   doc.addImage(imageData = output.data, 0, 0, imgWidthMM * ((imgIncrease / 100) + 1), imgHeightMM * ((imgIncrease / 100) + 1));
-  console.log(doc)
-  console.log(doc.text())
+  // console.log(doc)
   doc.save('ImgToPDF.pdf')
 }
