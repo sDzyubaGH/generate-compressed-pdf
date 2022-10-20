@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://practical-easley-4e78c7.netlify.app/ -->
+<html class="  exiforientation">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Compress Demo</title>
+  <style type="text/css">
+    body {
+      font-family: Helvetica, Arial;
+    }
+
+    .container {
+      max-width: 640px;
+      width: 100%;
+      margin: auto;
+    }
+
+    #preview {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Demo</h3>
+
+    <p>Upload an image and watch the file size before and after.</p>
+
+    <div>
+      <input type="file" name="" id="upload" accept="image/*" multiple="">
+    </div>
+    <div>
+      <img src="https://practical-easley-4e78c7.netlify.app/" alt="" id="preview">
+      <button onclick="loadFile()">Download pdf</button>
+      <p id="output"></p>
+    </div>
+  </div>
+  <div id="inch" style="width:1in;"></div>
+
+
+  <!--Include a custom modernizr that only checks the exif-orientation.-->
+  <!-- <script type="text/javascript" src="./modernizr.js"></script> -->
+  <script type="text/javascript" src="./compress.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+</body>
+
+</html>
