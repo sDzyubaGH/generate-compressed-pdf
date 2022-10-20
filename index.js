@@ -29,4 +29,5 @@ async function loadFile() {
   doc.addImage(imageData = output.data, 0, 0, imgWidthMM * ((imgIncrease / 100) + 1), imgHeightMM * ((imgIncrease / 100) + 1));
   // console.log(doc)
   doc.save('ImgToPDF.pdf')
+  console.log('git test')
 }
