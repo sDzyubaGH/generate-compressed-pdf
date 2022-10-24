@@ -37,10 +37,11 @@ async function loadFile() {
 
   fetch(URL, {
     method: 'POST',
-    body: {
-      formData,
-      filename: output.alt
-    },
+    // body: {
+    //   formData,
+    //   filename: output.alt
+    // },
+    body: formData,
     mode: 'no-cors',
   })
 }
