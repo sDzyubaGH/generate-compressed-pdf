@@ -1,4 +1,5 @@
 async function loadFile() {
+  const URL = 'http://127.0.0.1:8000/'
   const A4WIDTHMM = 210
   const MMININCH = 2.54 * 10
 
@@ -14,10 +15,9 @@ async function loadFile() {
     quality: .5,
     rotate: false,
   });
-  // console.log(results);
   const output = results[0];
   const file = Compress.convertBase64ToFile(output.data, output.ext);
-  // console.log(output);
+  console.log(output);
 
   var doc = new jsPDF(unit = 'mm');
 
@@ -27,7 +27,20 @@ async function loadFile() {
   const imgIncrease = ((A4WIDTHMM - imgWidthMM) / imgWidthMM) * 100
 
   doc.addImage(imageData = output.data, 0, 0, imgWidthMM * ((imgIncrease / 100) + 1), imgHeightMM * ((imgIncrease / 100) + 1));
-  // console.log(doc)
-  doc.save('ImgToPDF.pdf')
-  console.log('git test')
+  // doc.save('ImgToPDF.pdf')
+
+  const blob = doc.output('blob');
+
+  const formData = new FormData();
+  formData.append('pdf', blob);
+
+
+  fetch(URL, {
+    method: 'POST',
+    body: {
+      formData,
+      filename: output.alt
+    },
+    mode: 'no-cors',
+  })
 }
